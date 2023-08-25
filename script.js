@@ -1,6 +1,6 @@
 window.promises = [];
 let max=5,min=1;
-for(let i=0;i<6;i++){
+for(let i=0;i<5;i++){
 	const promise = new Promise((resolve) => {
 		const randomTime = Math.floor(Math.random() * 5000) + 1000;
     setTimeout(() => {
