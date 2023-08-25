@@ -1,17 +1,21 @@
 window.promises = [];
 let max=5,min=1;
 for(let i=0;i<6;i++){
-	const p=new Promise((res,rej)=>{
-		let time=Math.floor(Math.random()*(max-min+1)+min)
-		setTimeOut(()=>{
-			res()
-		},time*1000)
-	})
-	promises.push(p)
+	const promise = new Promise((resolve) => {
+		const randomTime = Math.floor(Math.random() * 5000) + 1000;
+    setTimeout(() => {
+      resolve(`Promise ${i + 1} resolved after ${randomTime} milliseconds`);
+    }, randomTime);
+  });
+	promises.push(promise)
 }
 
 const output=document.getElementById("output")
-output.innerText=Promise.any(promises)
+// output.innerText='hii'
+Promise.any(promises).then(res=>{
+
+	output.innerText=res
+})
 
 // Do not change the code above this
 // add your promises to the array `promises`
